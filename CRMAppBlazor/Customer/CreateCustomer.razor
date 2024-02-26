@@ -1,0 +1,42 @@
+﻿@page "/create-customer"
+
+@using CRM.DTOs.customerDTOs;
+@using Microsoft.AspNetCore.Components.Forms;
+@using System.ComponentModel.DataAnnotations;
+@using Microsoft.AspNetCore.Components;
+@using CRM.AppBlazor.Data;
+
+@if (isSuccess == false && isError == false)
+{
+   <h3>Crear Nuevo Clientes</h3>
+
+   <EditForm Model="customer" OnInvalidSubmit="Create">
+       <DataAnnotationsValidator />
+       <div class="row">
+           <div class="col-4">
+               <div class="form-group">
+                   <label for="Name">Nombre:</label>
+                   <InputText class="form-control" id="Name" @bind-Value="Customer.Name"/>
+                   <ValidationMessage For="() => customer.Name" />
+
+               </div>
+           </div>
+           <div class="col-4">
+               <div class="form-group">
+                   <label for="LastName">Apellido:</label>
+                   <InputText class="form-control" id="Name" @bind-Value="customer.LastName" />
+                   <ValidationMessage For="() => customer.LastName" />
+               </div>
+           </div>
+       </div>
+       <div class="row">
+           <div class="form-group">
+               <label for="LastName">Apellido:</label>
+               <InputText class=""></InputText>
+           </div>
+
+       </div>
+
+   </EditForm>
+}
+

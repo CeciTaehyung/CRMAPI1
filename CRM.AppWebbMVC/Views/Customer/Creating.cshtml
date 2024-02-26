@@ -1,0 +1,56 @@
+﻿@model CRM.DTOs.customerDTOs.createCustomerDTO
+
+@{
+    ViewData["Title"] = "Creating";
+}
+
+<h1>Crear</h1>
+
+<h4>Cliente</h4>
+<hr />
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div cclass="row">
+        <div class="col-4">
+            <label asp-for="Nombre" class="control-label"></label>
+            <input  asp-for="Nombre" class="form-control"/>
+            <span asp-validation-for="Nombre" class="texte-danger"></span>
+        </div>
+     </div>
+     <div class="col-4">
+        <div class="form-group">
+            <label asp-for="LastName" class="control-label"> </label>
+            <input asp-for="LastName" class="form-control"/>
+            <spna asp-validation-for="LastName" class="text-danger"></spna>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <textarea asp-for="Address" class="form-control"></textarea>
+                <span asp-validation-for="Address" class="text-danger"></span>
+                
+
+            </div>
+        </div>
+
+        <br />
+        <div class="row-cols-6">
+            <div class="form-group">
+                <input  type="submit" value="Crear" class="btn btn-primary"/>
+            
+                <a asp-action="Index" class="btn btn-secondary">Cancerlar </a>
+                <br />
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync ("_validationScriptsPartial");
+    }
+}
